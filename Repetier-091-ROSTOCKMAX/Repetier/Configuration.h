@@ -184,7 +184,7 @@ Overridden if EEPROM activated.*/
 // 100 is AD595
 // 101 is MAX6675
 // 102 is MAX31855
-#define EXT0_TEMPSENSOR_TYPE 97
+#define EXT0_TEMPSENSOR_TYPE 51
 // Analog input pin for reading temperatures or pin enabling SS for MAX6675
 #define EXT0_TEMPSENSOR_PIN TEMP_0_PIN
 // Which pin enables the heater
@@ -434,8 +434,76 @@ If you have a PTC thermistor instead of a NTC thermistor, keep the adc values in
   {441*4,120*8},{513*4,110*8},{588*4,100*8},{734*4,80*8},{856*4,60*8},{938*4,40*8},{986*4,20*8},{1008*4,0*8},{1018*4,-20*8}	}
 
 /** Number of entries in the user thermistor table 1. Set to 0 to disable it. */
-#define NUM_TEMPS_USERTHERMISTOR1 0
-#define USER_THERMISTORTABLE1  {}
+#define NUM_TEMPS_USERTHERMISTOR1 50
+//#define USER_THERMISTORTABLE1  {}
+
+
+
+/* define HEATER_BED_RAW_HI_TEMP 16383
+   define HEATER_BED_RAW_LO_TEMP 0
+*/
+#ifdef OVERSAMPLENR
+#error OVERSAMPLENR Should not be defined at this point, change the name of the constant in Configuration.h
+#endif
+
+#define OVERSAMPLENR 2
+#define TEMP_SCALE 8
+#define USER_THERMISTORTABLE1  { \
+{         0*OVERSAMPLENR ,       0*TEMP_SCALE }, \
+{       227*OVERSAMPLENR ,       1*TEMP_SCALE }, \
+{       236*OVERSAMPLENR ,       10*TEMP_SCALE }, \
+{       245*OVERSAMPLENR ,       20*TEMP_SCALE }, \
+{       253*OVERSAMPLENR ,       30*TEMP_SCALE }, \
+{       262*OVERSAMPLENR ,       40*TEMP_SCALE }, \
+{       270*OVERSAMPLENR ,       50*TEMP_SCALE }, \
+{       279*OVERSAMPLENR ,       60*TEMP_SCALE }, \
+{       287*OVERSAMPLENR ,       70*TEMP_SCALE }, \
+{       295*OVERSAMPLENR ,       80*TEMP_SCALE }, \
+{       304*OVERSAMPLENR ,       90*TEMP_SCALE }, \
+{       312*OVERSAMPLENR ,       100*TEMP_SCALE }, \
+{       320*OVERSAMPLENR ,       110*TEMP_SCALE }, \
+{       329*OVERSAMPLENR ,       120*TEMP_SCALE }, \
+{       337*OVERSAMPLENR ,       130*TEMP_SCALE }, \
+{       345*OVERSAMPLENR ,       140*TEMP_SCALE }, \
+{       353*OVERSAMPLENR ,       150*TEMP_SCALE }, \
+{       361*OVERSAMPLENR ,       160*TEMP_SCALE }, \
+{       369*OVERSAMPLENR ,       170*TEMP_SCALE }, \
+{       377*OVERSAMPLENR ,       180*TEMP_SCALE }, \
+{       385*OVERSAMPLENR ,       190*TEMP_SCALE }, \
+{       393*OVERSAMPLENR ,       200*TEMP_SCALE }, \
+{       401*OVERSAMPLENR ,       210*TEMP_SCALE }, \
+{       409*OVERSAMPLENR ,       220*TEMP_SCALE }, \
+{       417*OVERSAMPLENR ,       230*TEMP_SCALE }, \
+{       424*OVERSAMPLENR ,       240*TEMP_SCALE }, \
+{       432*OVERSAMPLENR ,       250*TEMP_SCALE }, \
+{       440*OVERSAMPLENR ,       260*TEMP_SCALE }, \
+{       447*OVERSAMPLENR ,       270*TEMP_SCALE }, \
+{       455*OVERSAMPLENR ,       280*TEMP_SCALE }, \
+{       463*OVERSAMPLENR ,       290*TEMP_SCALE }, \
+{       470*OVERSAMPLENR ,       300*TEMP_SCALE }, \
+{       478*OVERSAMPLENR ,       310*TEMP_SCALE }, \
+{       485*OVERSAMPLENR ,       320*TEMP_SCALE }, \
+{       493*OVERSAMPLENR ,       330*TEMP_SCALE }, \
+{       500*OVERSAMPLENR ,       340*TEMP_SCALE }, \
+{       507*OVERSAMPLENR ,       350*TEMP_SCALE }, \
+{       515*OVERSAMPLENR ,       360*TEMP_SCALE }, \
+{       522*OVERSAMPLENR ,       370*TEMP_SCALE }, \
+{       529*OVERSAMPLENR ,       380*TEMP_SCALE }, \
+{       537*OVERSAMPLENR ,       390*TEMP_SCALE }, \
+{       544*OVERSAMPLENR ,       400*TEMP_SCALE }, \
+{       614*OVERSAMPLENR ,       500*TEMP_SCALE }, \
+{       681*OVERSAMPLENR ,       600*TEMP_SCALE }, \
+{       744*OVERSAMPLENR ,       700*TEMP_SCALE }, \
+{       805*OVERSAMPLENR ,       800*TEMP_SCALE }, \
+{       862*OVERSAMPLENR ,       900*TEMP_SCALE }, \
+{       917*OVERSAMPLENR ,       1000*TEMP_SCALE }, \
+{       968*OVERSAMPLENR ,       1100     } \
+}
+#undef OVERSAMPLNR
+#undef TEMP_SCALE
+
+
+
 /** Number of entries in the user thermistor table 2. Set to 0 to disable it. */
 #define NUM_TEMPS_USERTHERMISTOR2 0
 #define USER_THERMISTORTABLE2  {}
