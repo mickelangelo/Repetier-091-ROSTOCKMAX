@@ -306,7 +306,7 @@ The codes are only executed for multiple extruder when changing the extruder. */
 #define EXT1_STEP_PIN E1_STEP_PIN
 #define EXT1_DIR_PIN E1_DIR_PIN
 // set to 0/1 for normal / inverse direction
-#define EXT1_INVERSE false
+#define EXT1_INVERSE true
 #define EXT1_ENABLE_PIN E1_ENABLE_PIN
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 #define EXT1_ENABLE_ON false
